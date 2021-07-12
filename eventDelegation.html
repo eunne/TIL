@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event delegation</title>
+
+  <style>
+    #fruits {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #fruits li {
+      width: 100px;
+      cursor: pointer;
+    }
+
+    #fruits .active {
+      color: red;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav><ul id="fruits">
+    <li id="apple" class="active">Apple</li>
+    <li id="banana">Banana</li>
+    <li id="orange">Orange</li>
+  </ul>
+</nav>
+<div>a selected navigation item: <em class="msg">apple</em></div>
+  <script>
+    const $fruits = document.getElementById("fruits");
+    const $msg = document.querySelector('.msg');
+
+    function activate({target}) {
+      [...$fruits.children].forEach($fruit => {
+        $fruit.classList.toggle('active',$fruit === target);
+        $msg.textContent = target.id;
+      });
+    }
+
+    //add event handler to all navigation items
+    document.getElementById('apple').onclick = activate;
+    document.getElementById('banana').onclick = activate;
+    document.getElementById('orange').onclick = activate;
+  </script>
+</body>
+</html>
