@@ -29,7 +29,7 @@ BlackCoffee git 스터디가 오늘 시작됐다.
 
 음, 그러니까 A라는 저장소 안에 프로젝트를 만들면 main브랜치가 생기는데 이 main브랜치를 복사해서 다른이름의 브랜치들로 만들 수 있기에 A라는 저장소 안에는 여러 브랜치들이 존재하게 되는 것이다.
 
-![branches.jpg](/img/branches.jpg)
+![branches.jpg](/img/branches.JPG)
 
 <br/>
 <br/>
@@ -40,12 +40,16 @@ BlackCoffee git 스터디가 오늘 시작됐다.
 
 next-step이라는 프로젝트를 최초로 발주한 저장소에서도 브랜치를 만들 수 있지만, next-step 프로젝트를 fork해서 가져온 '내 깃헙에 만들어진 저장소'에서도 브랜치를 만들 수 있다는 것이다.
 
-![branches2.jpg](/img/branches2.jpg)
+![branches2.jpg](/img/branches2.JPG)
 
 <br/>
 <br/>
 
 ## fork? clone? add? commit?
+
+![repository](/img/repository.PNG)
+![local](/img/locak.PNG)
+
 
 만약 프로젝트를 외부에서 가져오는게 아니라면 fork랑 clone은 옵션으로 보면 된다.
 
@@ -89,7 +93,7 @@ git checkout -b 브랜치명
 
 실제 conflict가 발생한 내용을 보니 다음과 같았다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e50cad6-1c0f-4618-8074-f1b7f98e0ebf/conflict.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e50cad6-1c0f-4618-8074-f1b7f98e0ebf/conflict.jpg)
+![conflict](/img/conflict.JPG)
 
 ```jsx
 <<<<<<< fenglisu
@@ -112,7 +116,6 @@ git checkout -b 브랜치명
 fenglisu라는 브랜치와 taiwan이라는 브랜치 간의 병합에서 해당 오류가 발생했다는 메세지가 떴다.
 
 
-사진
 <br/>
 
 merge를 해버리면 fast-forward병합이 되서 taiwan 브랜치가 우육면branch쪽으로 옮겨와 병합이 되는데 우육면과 펑리수 브랜치가 같은 버전? 단계?에 놓여있기 때문에 병합을 하면 위와같이 충돌이 발생하게 된다.
@@ -143,7 +146,6 @@ merge를 해버리면 fast-forward병합이 되서 taiwan 브랜치가 우육면
 
 진짜?
 
-사진
 
 일단, 이렇게 직접 충돌부분을 수정하게 되면 해당 변화를 기록하는 병합커밋이 새로 생성이 되고 taiwan브랜치가 한단계 더 나아간 모습을 보여주게 된다. (실제 그런지는 모르겠는데 이론상으론 그렇다.)
 
@@ -155,6 +157,11 @@ merge를 해버리면 fast-forward병합이 되서 taiwan 브랜치가 우육면
 수행과제에 rebase를 이용해보라는 힌트가 있었다.
 
 rebase를  이용하면 이력을 하나의 줄기로 만들 수 있다고 한다. 근데 수정은 직접 손으로 하는 것 같다.
+
+<br/>
+
+- merge와 rebase 비교
+![conflict](/img/conflict2.PNG)
 
 
 <br/>
