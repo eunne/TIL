@@ -19,7 +19,7 @@ BlackCoffee git 스터디가 오늘 시작됐다.
 <br/>
 <br/>
 
-## 브랜치? 저장소?
+## 브랜치? 저장소? 뭐가 다르지?
 
 브랜치는 같은 프로젝트로 동시에 서로다른 작업을 진행할 때 서로의 작업에 영향을 주고받지 않도록 자신만의 전용 파일을 만드는 것이라고 생각하면 된다.
 
@@ -45,7 +45,7 @@ next-step이라는 프로젝트를 최초로 발주한 저장소에서도 브랜
 <br/>
 <br/>
 
-## fork? clone? add? commit?
+## git의 전반적 흐름에 대해 알아보자!
 
 ![repository](/img/repository.PNG)
 ![local](/img/locak.PNG)
