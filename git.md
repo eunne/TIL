@@ -48,6 +48,14 @@ next-step이라는 프로젝트를 최초로 발주한 저장소에서도 브랜
 ## git의 전반적 흐름에 대해 알아보자!
 
 ![repository](/img/repository.PNG)
+
+
+<br/>
+
+밑에는 my local 저장소 세부내역을 확대해보았다! (위 그림에서 my local 저장소 내의 branch1, 2로 표현된 부분)
+
+<br/>
+
 ![local](/img/locak.PNG)
 
 
