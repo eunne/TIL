@@ -2,7 +2,7 @@
 
 - label to data : 메모리 주소에 이름을 달아준 것
 
-![이미 3행에서 variable c에 값을 담아놨기 때문에 4,5행에서 a,b값이 바뀌어도 c값은 바뀌지 않는것임.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bdc6e658-fa48-4622-9152-0070b47ff401/245e54ec-25b4-4cff-8589-8a3f8f4b2c08/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-11-27_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_7.27.15.png)
+![이미 3행에서 variable c에 값을 담아놨기 때문에 4,5행에서 a,b값이 바뀌어도 c값은 바뀌지 않는것임.](/img/variable.png)
 
 이미 3행에서 variable c에 값을 담아놨기 때문에 4,5행에서 a,b값이 바뀌어도 c값은 바뀌지 않는것임.
 
