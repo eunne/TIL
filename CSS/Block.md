@@ -5,7 +5,7 @@
 - 한줄 전체를 차지한다.
 - padding, margin이 수평, 수직으로 모두 적용된다.
 
-![block2](/img/block.png)
+![block2](/img/block2.png)
 
 - display: inline으로 설정하면 p태그이지만 Inline으로 작동한다.
 
