@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browser coordination</title>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    .line {
+      position: absolute;
+      background-color: white;
+    }
+
+    .horizontal {
+      width: 100%;
+      height: 1px;
+      top: 50%;
+    }
+
+    .vertical {
+      width: 1px;
+      height: 100%;
+      left: 50%;
+    }
+
+    .target {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .tag {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(20px, 20px);
+      color: white;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="line horizontal"></div>
+  <div class="line vertical"></div>
+  <img class="target" src="img/target.png" alt="target">
+  <div class="tag"></div>
+</body>
+<script>
+  const horizontal = document.querySelector('.horizontal');
+  const vertical = document.querySelector('.vertical');
+  const target = document.querySelector('.target');
+  const tag = document.querySelector('.tag');
+  
+  // horizontal 이동시키게 만들기
+  document.addEventListener('mousemove', (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    
+    //vertical style 안에 left의 픽셀을 x로 변형시켜줘. 이 얘기
+    // style을 움직이면서 동적은 모션을 주는구나.
+    vertical.style.left = `${x}px`;
+    horizontal.style.top = `${y}px`;
+    target.style.left = `${x}px`;
+    target.style.top = `${y}px`;
+    tag.style.left = `${x}px`;
+    tag.style.top = `${y}px`;
+
+    // 요소의 기본내용을 새 내용으로 바꿔준다.
+    tag.innerHTML = `${x}px, ${y}px`;
+
+  });
+</script>
+</html>

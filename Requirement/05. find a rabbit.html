@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a rabbit</title>
+  <style>
+    body {
+      background-color: black;
+      /* body contents안에 있는 모든 항목을 가운데정렬시킴 (각 요소별로 적용하는게 아니라) */
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      /* text-align: center; */
+      /* block이라서 center가 되기 위해선 margin auto를 적용시켜줘야함 */
+      margin: auto;
+      margin-bottom: 40px;
+    }
+
+    button {
+      outline: none;
+      background-color: pink;
+      color: brown;
+      font-size: 32px;
+      /* top: 10px; */
+      margin: 16px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button>Find a rabbit</button>
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img id="rabbit" src="/img/rabbit.png" alt="rabbit">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+  <img src="/img/carrot.png" alt="carrot" class="carrot">
+</body>
+<script>
+  // target tag를 만나면 target이라는 변수에 넣어줘
+  const button = document.querySelector('button');
+  const rabbit = document.querySelector('#rabbit');
+
+  // findrabbit 을 클릭하면 target으로 이동해줘
+  button.addEventListener('click', () => {
+    rabbit.scrollIntoView({behavior:'smooth'});
+  })
+</script>
+</html>

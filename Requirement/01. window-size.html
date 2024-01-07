@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Size</title>
+  <style>
+    .tag {
+      display: inline-block;
+      background-color: antiquewhite;
+      padding: 2rem;
+      margin-top: 1rem;
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tag">window size</div>
+  <script>
+    // .tag를 만나면 tag라는 변수에 넣어줘
+    const tag = document.querySelector('.tag');
+
+    function updateTag() {
+    // tag 안에 새로운 html을 넣어줄거야
+    tag.innerHTML = 
+    `window.screen: ${window.screen.width}, ${window.screen.height} <br/>
+    window.outer: ${window.outerWidth}, ${window.outerHeight} <br/>
+    window.inner: ${window.innerWidth}, ${window.innerHeight} <br/>
+    documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+  }
+
+  // eventlistner야, resize 되면 update tag를 실행해줘
+    window.addEventListener('resize', () => {
+      updateTag();
+    });
+
+  // 넌 그냥 있어도 update tag를 실행해줘 (첫 화면에 바로 update tag가 뜨도록..)
+    updateTag();
+  
+  </script>
+</body>
+</html>
