@@ -7,6 +7,8 @@
   <style>
     body {
       background-color: black;
+      /* [modify: 성능개선] Body에 기본적으로 설정되어있는 margin 없애주기 */
+      margin: 0;
     }
 
     .line {
@@ -17,29 +19,24 @@
     .horizontal {
       width: 100%;
       height: 1px;
-      top: 50%;
     }
 
     .vertical {
       width: 1px;
       height: 100%;
-      left: 50%;
     }
 
     .target {
       position: absolute;
-      top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
     }
 
     .tag {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(20px, 20px);
       color: white;
       font-size: 30px;
+      /* 중간에서 떨어지도록 만들기 */
+      margin: 20px;
     }
   </style>
 </head>
@@ -54,24 +51,43 @@
   const vertical = document.querySelector('.vertical');
   const target = document.querySelector('.target');
   const tag = document.querySelector('.tag');
+
+
   
-  // horizontal 이동시키게 만들기
-  document.addEventListener('mousemove', (event) => {
-    const x = event.clientX;
-    const y = event.clientY;
+  // 아직 다운로드가 완료되지 않았기 때문에 target의 w,h 위치가 0으로 뜸, 모든 css, img가 준비된 상태로 바꾸기 = load
+
+  addEventListener('load', () => {
+    // [modify: 성능개선] target이 -50%, -50% 씩 이동할 수 있도록 js에서 설정해주기
+     // element.getBoundingClientRect() : element 크기와 viewport에서의 상대적 위치정보를 제공하는 DOMRect를 반환한다.
+    const targetRect = target.getBoundingClientRect();
     
-    //vertical style 안에 left의 픽셀을 x로 변형시켜줘. 이 얘기
-    // style을 움직이면서 동적은 모션을 주는구나.
-    vertical.style.left = `${x}px`;
-    horizontal.style.top = `${y}px`;
-    target.style.left = `${x}px`;
-    target.style.top = `${y}px`;
-    tag.style.left = `${x}px`;
-    tag.style.top = `${y}px`;
+    console.log(targetRect) // w, h 위치가 0으로 뜸
 
-    // 요소의 기본내용을 새 내용으로 바꿔준다.
-    tag.innerHTML = `${x}px, ${y}px`;
+    // [modify: 성능개선] target의 rect안에 있는 width, height의 1/2을 가져온다.
+    const targetHalfWidth = targetRect.width / 2;
+    const targetHalfHeight= targetRect.height / 2;
 
+    
+    // horizontal 이동시키게 만들기
+    document.addEventListener('mousemove', (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+      
+      //vertical style 안에 left의 픽셀을 x로 변형시켜줘. 이 얘기
+      // style을 움직이면서 동적은 모션을 주는구나.
+
+      // [modify: 성능개선] layout을 계속 불러오지 않도록, composition만 바꾸는 transform을 사용 (top, left는 layout을 계속 바꾸므로 성능에 안 좋음.)
+      // 바꾼 후에, css에 top, left 기본적으로 50% 설정되어 있는 것을 지워줄 것.
+      vertical.style.transform = `translateX(${x}px)`;
+      horizontal.style.transform = `translateY(${y}px)`;
+      
+      // [modify: 성능개선] target의 위치를 -50%, -50%만큼 설정해준다
+      target.style.transform = `translate(${x - targetHalfWidth}px, ${y - targetHalfHeight}px)`;
+      tag.style.transform = `translate(${x}px, ${y}px)`;
+
+      // 요소의 기본내용을 새 내용으로 바꿔준다.
+      tag.innerHTML = `${x}px, ${y}px`;
+    });
   });
 </script>
 </html>
